@@ -2,9 +2,13 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class AuthService extends ChangeNotifier {
-  User? _currentUser = FirebaseAuth.instance.currentUser;
-  // 현재 유저(로그인 되지 않은 경우 null 반환)
-  User? get currentUser => _currentUser;
+  // User? _currentUser = FirebaseAuth.instance.currentUser;
+  // // 현재 유저(로그인 되지 않은 경우 null 반환)
+  // User? get currentUser => _currentUser;
+  User? currentUser() {
+    // 현재 유저(로그인 되지 않은 경우 null 반환)
+    return FirebaseAuth.instance.currentUser;
+  }
 
   void signUp({
     required String email, // 이메일
